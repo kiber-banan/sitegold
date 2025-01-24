@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto text-center">
+    <h1 class="text-4xl font-bold text-gray-800 mb-8">Welcome to StandOff 2 Trading</h1>
+    <p class="text-xl text-gray-600 mb-8">Trade gold safely and securely with our platform</p>
+    <div class="space-y-4">
+        <a href="{{ url_for('login') }}" class="inline-block bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600">
+            Get Started
+        </a>
+    </div>
+</div>
+{% endblock %}

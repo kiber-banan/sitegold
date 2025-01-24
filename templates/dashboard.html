@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+        <h2 class="text-2xl font-bold mb-4">Your Account</h2>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="p-4 bg-gray-50 rounded-lg">
+                <p class="text-gray-600">Balance</p>
+                <p class="text-2xl font-bold">{{ current_user.balance }}</p>
+            </div>
+            <div class="p-4 bg-gray-50 rounded-lg">
+                <p class="text-gray-600">Gold</p>
+                <p class="text-2xl font-bold">{{ current_user.gold }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold mb-4">Buy Gold</h3>
+            <form method="POST" action="{{ url_for('buy_gold') }}" class="space-y-4">
+                <div>
+                    <label for="buy_amount" class="block text-sm font-medium text-gray-700">Amount</label>
+                    <input type="number" name="amount" id="buy_amount" min="1" required
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500">
+                </div>
+                <button type="submit"
+                        class="w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Buy Gold
+                </button>
+            </form>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-bold mb-4">Sell Gold</h3>
+            <form method="POST" action="{{ url_for('sell_gold') }}" class="space-y-4">
+                <div>
+                    <label for="sell_amount" class="block text-sm font-medium text-gray-700">Amount</label>
+                    <input type="number" name="amount" id="sell_amount" min="1" required
+                           class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500">
+                </div>
+                <button type="submit"
+                        class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                    Sell Gold
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
